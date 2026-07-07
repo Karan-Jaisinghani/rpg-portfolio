@@ -1,4 +1,5 @@
 import React, { useState, memo } from 'react';
+import { createPortal } from 'react-dom';
 import { Scroll, Download, X, Sparkles } from 'lucide-react';
 
 interface Props {
@@ -36,11 +37,10 @@ export const ResumeCollect: React.FC<Props> = memo(({ resumeUrl = '#' }) => {
         COLLECT RESUME
       </button>
 
-      {/* Modal Overlay */}
-      {open && (
+      {/* Modal Overlay rendered via Portal */}
+      {open && createPortal(
         <div
-          className="fixed inset-0 z-[999] flex items-center justify-center p-4"
-          style={{ background: 'rgba(0,0,0,0.75)', backdropFilter: 'blur(4px)' }}
+          className="fixed inset-0 z-[9999] flex items-center justify-center p-4 bg-slate-950/80 backdrop-blur-sm"
           onClick={(e) => { if (e.target === e.currentTarget) setOpen(false); }}
         >
           <div
@@ -146,7 +146,8 @@ export const ResumeCollect: React.FC<Props> = memo(({ resumeUrl = '#' }) => {
               )}
             </div>
           </div>
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );
