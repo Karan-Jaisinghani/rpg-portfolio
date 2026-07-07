@@ -176,15 +176,17 @@ function App() {
           </div>
 
           {/* Right mini HUD (Level, XP, Theme Toggle, and Music) */}
-          <div className="hidden sm:flex items-center gap-3">
-            <span className="font-pressstart text-[8px] text-amber-500 bg-slate-900 border border-slate-800 px-2 py-1 rounded">
-              LVL {level}
-            </span>
-            <div className="w-24 h-2 bg-slate-950 border border-slate-850 p-0.5 rounded-sm overflow-hidden">
-              <div 
-                className="h-full bg-amber-500 transition-all duration-300"
-                style={{ width: `${(currentXP / maxXP) * 100}%` }}
-              />
+          <div className="flex items-center gap-2 sm:gap-3">
+            <div className="hidden sm:flex items-center gap-3">
+              <span className="font-pressstart text-[8px] text-amber-500 bg-slate-900 border border-slate-800 px-2 py-1 rounded">
+                LVL {level}
+              </span>
+              <div className="w-24 h-2 bg-slate-950 border border-slate-850 p-0.5 rounded-sm overflow-hidden">
+                <div 
+                  className="h-full bg-amber-500 transition-all duration-300"
+                  style={{ width: `${(currentXP / maxXP) * 100}%` }}
+                />
+              </div>
             </div>
             <ThemeToggle />
             <MusicControl />

@@ -12,8 +12,8 @@ export function ThemeToggle() {
   // Restore background immediately on mount (before effects fire) to avoid white flash
   useEffect(() => {
     if (!isDark) {
-      document.documentElement.style.backgroundColor = '#e8dfcc';
-      document.body.style.backgroundColor = '#e8dfcc';
+      document.documentElement.style.backgroundColor = '#ecdcb9';
+      document.body.style.backgroundColor = '#ecdcb9';
     }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []); // intentionally runs once on mount only
@@ -29,8 +29,8 @@ export function ThemeToggle() {
     } else {
       root.setAttribute('data-theme', 'light');
       // Force eggshell canvas at the html root level — bypasses any CSS specificity
-      root.style.backgroundColor = '#e8dfcc';
-      document.body.style.backgroundColor = '#e8dfcc';
+      root.style.backgroundColor = '#ecdcb9';
+      document.body.style.backgroundColor = '#ecdcb9';
       localStorage.setItem(STORAGE_KEY, 'light');
     }
   }, [isDark]);
