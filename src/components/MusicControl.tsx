@@ -40,7 +40,7 @@ export const MusicControl: React.FC = () => {
       </button>
 
       {playing && (
-        <div className="flex items-center gap-1">
+        <div className="hidden sm:flex items-center gap-1">
           <Volume2 size={11} className="text-amber-500" />
           <input
             type="range"

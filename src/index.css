@@ -224,8 +224,13 @@
 }
 
 @layer base {
+  html, body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: hidden;
+  }
   body {
-    @apply bg-game-dark text-game-text font-sans selection:bg-game-gold selection:text-game-dark overflow-x-hidden;
+    @apply bg-game-dark text-game-text font-sans selection:bg-game-gold selection:text-game-dark;
     background-image: 
       radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.4) 0%, transparent 70%),
       radial-gradient(circle at 10% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
