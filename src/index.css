@@ -1,0 +1,462 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Outfit:wght@300;400;500;600;700;800&family=VT323&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─── THEME TOKENS ─── */
+:root {
+  --bg-primary:    #05070f;
+  --bg-secondary:  rgba(11, 15, 30, 0.75);
+  --bg-panel:      rgba(15, 23, 42, 0.75);
+  --text-primary:  #f8fafc;
+  --text-muted:    #94a3b8;
+  --border:        #1e293b;
+  --accent-gold:   #d97706;
+  --accent-gold-l: #f59e0b;
+  --scrollbar-bg:  #020617;
+  --scrollbar-fg:  #d97706;
+  --nav-bg:        rgba(2, 6, 23, 0.82);
+}
+
+[data-theme="light"] {
+  --bg-primary:    #ecdcb9;
+  --bg-secondary:  rgba(238, 226, 198, 0.9);
+  --bg-panel:      rgba(253, 248, 232, 0.96);
+  --text-primary:  #2a1a08;
+  --text-muted:    #785127;
+  --border:        #cbb483;
+  --accent-gold:   #d97706;
+  --accent-gold-l: #f59e0b;
+  --scrollbar-bg:  #ecdcb9;
+  --scrollbar-fg:  #b45309;
+  --nav-bg:        rgba(238, 226, 198, 0.96);
+
+  /* Paint the html element itself — this is the actual root canvas */
+  background-color: #ecdcb9 !important;
+  color: #2a1a08 !important;
+}
+
+/* Body and all direct wrapper divs — warm gradient */
+[data-theme="light"] body,
+[data-theme="light"] #root,
+[data-theme="light"] #root > div {
+  background-color: #ecdcb9 !important;
+  color: #2a1a08 !important;
+  background-image:
+    radial-gradient(circle at 50% 30%, rgba(217, 119, 6, 0.16) 0%, transparent 70%),
+    radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.06) 0%, transparent 55%),
+    radial-gradient(circle at 15% 15%, rgba(217, 119, 6, 0.08) 0%, transparent 50%) !important;
+  background-attachment: fixed !important;
+}
+
+[data-theme="light"] ::-webkit-scrollbar-track {
+  background: var(--scrollbar-bg);
+}
+
+[data-theme="light"] ::-webkit-scrollbar-thumb {
+  background: var(--scrollbar-fg);
+}
+
+[data-theme="light"] nav {
+  background: var(--nav-bg) !important;
+  border-color: var(--border) !important;
+}
+
+[data-theme="light"] .pixel-box {
+  background: rgba(253, 248, 232, 0.96) !important;
+  border-color: #cbb483 !important;
+}
+[data-theme="light"] .pixel-box:hover {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 15px rgba(217, 119, 6, 0.18) !important;
+}
+
+[data-theme="light"] .glass-panel {
+  background: rgba(253, 248, 232, 0.88) !important;
+  border-color: #cbb483 !important;
+}
+[data-theme="light"] .glass-panel:hover {
+  border-color: #d97706 !important;
+  box-shadow: 0 0 15px rgba(217, 119, 6, 0.18) !important;
+}
+
+[data-theme="light"] .crt-screen::after {
+  opacity: 0.05 !important;
+}
+
+/* ─── LIGHT MODE: TEXT & COMPONENT OVERRIDES ─── */
+
+/* Base text on all elements */
+[data-theme="light"],
+[data-theme="light"] * {
+  border-color: inherit;
+}
+
+[data-theme="light"] body {
+  color: #2a1a08 !important;
+}
+
+/* White/near-white text → rich dark ink */
+[data-theme="light"] .text-white,
+[data-theme="light"] .text-slate-100,
+[data-theme="light"] .text-slate-200 {
+  color: #2a1a08 !important;
+}
+
+/* Light grey / muted text → warm medium-dark brown */
+[data-theme="light"] .text-slate-300,
+[data-theme="light"] .text-slate-400 {
+  color: #4c3214 !important;
+}
+
+/* Muted or dim text → warm caramel brown */
+[data-theme="light"] .text-slate-500,
+[data-theme="light"] .text-game-muted {
+  color: #7c542b !important;
+}
+
+/* Section borders */
+[data-theme="light"] .border-slate-800,
+[data-theme="light"] .border-slate-900 {
+  border-color: #cbb483 !important;
+}
+
+[data-theme="light"] .border-slate-700 {
+  border-color: #bfa571 !important;
+}
+
+/* Dark backgrounds → warm parchment paper */
+[data-theme="light"] .bg-slate-950,
+[data-theme="light"] .bg-slate-900 {
+  background-color: rgba(253, 248, 232, 0.96) !important;
+}
+
+[data-theme="light"] .bg-slate-800 {
+  background-color: rgba(238, 226, 198, 0.95) !important;
+  border-color: #cbb483 !important;
+}
+
+/* XP bar track */
+[data-theme="light"] .bg-slate-950.border {
+  background-color: rgba(230, 216, 185, 0.8) !important;
+}
+
+/* Section background bands */
+[data-theme="light"] section {
+  border-color: #cbb483 !important;
+}
+
+/* pixel-box-gold light mode */
+[data-theme="light"] .pixel-box-gold {
+  background: rgba(253, 244, 218, 0.95) !important;
+  border-color: #b45309 !important;
+}
+
+[data-theme="light"] .pixel-box-gold h3,
+[data-theme="light"] .pixel-box-gold .text-amber-500 {
+  color: #854d0e !important;
+}
+
+/* Dynamic text glow overrides: glowing brown/gold ink look */
+[data-theme="light"] .glow-text-gold {
+  color: #854d0e !important;
+  text-shadow: 0 0 5px rgba(217, 119, 6, 0.4), 0 0 12px rgba(217, 119, 6, 0.15), 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+[data-theme="light"] .glow-text-purple {
+  color: #5b21b6 !important;
+  text-shadow: 0 0 5px rgba(139, 92, 246, 0.4), 0 0 12px rgba(139, 92, 246, 0.15), 0 1px 1px rgba(255, 255, 255, 0.9) !important;
+}
+
+/* Glass panels */
+[data-theme="light"] .glass-panel-gold {
+  background: rgba(253, 240, 205, 0.6) !important;
+  border-color: rgba(180, 83, 9, 0.4) !important;
+}
+
+/* Pixel buttons — keep gold legible */
+[data-theme="light"] .pixel-btn-gold {
+  color: #fff !important;
+}
+
+[data-theme="light"] .pixel-btn-gray {
+  background: #cbb483 !important;
+  color: #2a1a08 !important;
+}
+
+/* Scanlines — near invisible in light mode */
+[data-theme="light"] .scanlines {
+  opacity: 0.03 !important;
+}
+
+/* Nav links in light mode */
+[data-theme="light"] nav button {
+  color: #705432;
+}
+[data-theme="light"] nav button:hover {
+  color: #2a1a08;
+}
+
+/* Accents stay clear and warm */
+[data-theme="light"] .text-amber-500,
+[data-theme="light"] .text-amber-400 {
+  color: #b45309 !important;
+}
+
+[data-theme="light"] .text-amber-600 {
+  color: #92400e !important;
+}
+
+/* Purple accents */
+[data-theme="light"] .text-purple-400 {
+  color: #6d28d9 !important;
+}
+
+/* Green accents */
+[data-theme="light"] .text-green-400 {
+  color: #15803d !important;
+}
+
+/* Blue accents */
+[data-theme="light"] .text-blue-400 {
+  color: #1e3a8a !important;
+}
+
+@layer base {
+  body {
+    @apply bg-game-dark text-game-text font-sans selection:bg-game-gold selection:text-game-dark overflow-x-hidden;
+    background-image: 
+      radial-gradient(circle at 50% 30%, rgba(30, 41, 59, 0.4) 0%, transparent 70%),
+      radial-gradient(circle at 10% 80%, rgba(124, 58, 237, 0.1) 0%, transparent 50%);
+    background-attachment: fixed;
+  }
+  
+  /* Retro Game Styled Scrollbars */
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    background: #020617;
+    border-left: 2px solid #1e293b;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background: #d97706;
+    border: 2px solid #020617;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    background: #f59e0b;
+  }
+}
+
+@layer components {
+  /* CRT Scanline effect wrapper */
+  .crt-screen::after {
+    content: " ";
+    display: block;
+    position: fixed;
+    top: 0; left: 0; bottom: 0; right: 0;
+    background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+    aspect-ratio: auto;
+    z-index: 9999;
+    background-size: 100% 4px, 3px 100%;
+    pointer-events: none;
+    opacity: 0.35;
+  }
+
+  /* Pixel Corners Box - Custom borders styling */
+  .pixel-box {
+    position: relative;
+    border: 4px solid #1e293b;
+    background: rgba(15, 23, 42, 0.75);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  }
+
+  .pixel-box::before {
+    content: '';
+    position: absolute;
+    top: -4px; bottom: -4px; left: 4px; right: 4px;
+    background: transparent;
+    border-left: 4px solid rgba(15, 23, 42, 0.75);
+    border-right: 4px solid rgba(15, 23, 42, 0.75);
+    pointer-events: none;
+  }
+
+  .pixel-box::after {
+    content: '';
+    position: absolute;
+    top: 4px; bottom: 4px; left: -4px; right: -4px;
+    background: transparent;
+    border-top: 4px solid rgba(15, 23, 42, 0.75);
+    border-bottom: 4px solid rgba(15, 23, 42, 0.75);
+    pointer-events: none;
+  }
+
+  /* Gold Pixel Corners Box */
+  .pixel-box-gold {
+    position: relative;
+    border: 4px solid #b45309;
+    background: rgba(24, 18, 10, 0.85);
+    box-shadow: 0 0 15px rgba(217, 119, 6, 0.2);
+  }
+
+  .pixel-box-gold::before {
+    content: '';
+    position: absolute;
+    top: -4px; bottom: -4px; left: 4px; right: 4px;
+    background: transparent;
+    border-left: 4px solid rgba(24, 18, 10, 0.85);
+    border-right: 4px solid rgba(24, 18, 10, 0.85);
+    pointer-events: none;
+  }
+
+  .pixel-box-gold::after {
+    content: '';
+    position: absolute;
+    top: 4px; bottom: 4px; left: -4px; right: -4px;
+    background: transparent;
+    border-top: 4px solid rgba(24, 18, 10, 0.85);
+    border-bottom: 4px solid rgba(24, 18, 10, 0.85);
+    pointer-events: none;
+  }
+
+  /* Retro Gaming Button Gold Style */
+  .pixel-btn-gold {
+    @apply relative text-white bg-amber-600 px-6 py-2.5 font-pressstart text-[10px] tracking-wider transition-all duration-100 ease-out select-none active:translate-y-1 active:shadow-none;
+    box-shadow: 0 4px 0 0 #78350f, 0 -4px 0 0 #78350f, 4px 0 0 0 #78350f, -4px 0 0 0 #78350f, inset 0 2px 0 0 #fbbf24;
+  }
+  
+  .pixel-btn-gold:hover {
+    @apply bg-amber-500;
+    box-shadow: 0 4px 0 0 #78350f, 0 -4px 0 0 #78350f, 4px 0 0 0 #78350f, -4px 0 0 0 #78350f, inset 0 2px 0 0 #fde047, 0 0 10px rgba(217, 119, 6, 0.6);
+  }
+
+  /* Retro Gaming Button Gray Style */
+  .pixel-btn-gray {
+    @apply relative text-gray-300 bg-slate-700 px-6 py-2.5 font-pressstart text-[10px] tracking-wider transition-all duration-100 ease-out select-none active:translate-y-1 active:shadow-none;
+    box-shadow: 0 4px 0 0 #1e293b, 0 -4px 0 0 #1e293b, 4px 0 0 0 #1e293b, -4px 0 0 0 #1e293b, inset 0 2px 0 0 #475569;
+  }
+
+  .pixel-btn-gray:hover {
+    @apply bg-slate-600 text-white;
+    box-shadow: 0 4px 0 0 #0f172a, 0 -4px 0 0 #0f172a, 4px 0 0 0 #0f172a, -4px 0 0 0 #0f172a, inset 0 2px 0 0 #64748b, 0 0 8px rgba(100, 116, 139, 0.4);
+  }
+
+  /* Retro Gaming Button Red Style */
+  .pixel-btn-red {
+    @apply relative text-white bg-rose-700 px-6 py-2.5 font-pressstart text-[10px] tracking-wider transition-all duration-100 ease-out select-none active:translate-y-1 active:shadow-none;
+    box-shadow: 0 4px 0 0 #881337, 0 -4px 0 0 #881337, 4px 0 0 0 #881337, -4px 0 0 0 #881337, inset 0 2px 0 0 #fb7185;
+  }
+
+  .pixel-btn-red:hover {
+    @apply bg-rose-600;
+    box-shadow: 0 4px 0 0 #881337, 0 -4px 0 0 #881337, 4px 0 0 0 #881337, -4px 0 0 0 #881337, inset 0 2px 0 0 #fda4af, 0 0 10px rgba(225, 29, 72, 0.6);
+  }
+}
+
+/* Custom Scanline Overlay */
+.scanlines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%,
+    rgba(0, 0, 0, 0.15) 50%
+  );
+  background-size: 100% 4px;
+  z-index: 10;
+  pointer-events: none;
+}
+
+/* Skill connections line graph styling */
+.connector-line {
+  position: absolute;
+  background: linear-gradient(90deg, rgba(139, 92, 246, 0.4), rgba(217, 119, 6, 0.4));
+  height: 2px;
+  transform-origin: left center;
+  z-index: 1;
+}
+
+/* Winding pathway path styling */
+.pathway-svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Neon Text Glow */
+.glow-text-gold {
+  text-shadow: 0 0 10px rgba(217, 119, 6, 0.8), 0 0 20px rgba(217, 119, 6, 0.3);
+}
+
+.glow-text-purple {
+  text-shadow: 0 0 10px rgba(139, 92, 246, 0.8), 0 0 20px rgba(139, 92, 246, 0.3);
+}
+
+/* Glassmorphism slate panels */
+.glass-panel {
+  @apply bg-slate-900/60 border border-slate-800/80 backdrop-blur-md;
+}
+
+.glass-panel-gold {
+  @apply bg-amber-950/20 border border-amber-500/30 backdrop-blur-md shadow-[inset_0_1px_1px_rgba(251,191,36,0.1)];
+}
+
+/* Level-up pill animation */
+@keyframes fadeSlideIn {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+
+/* ─── COLLECT ITEM MODAL ANIMATIONS ─── */
+@keyframes collectModalIn {
+  from { opacity: 0; transform: scale(0.85) translateY(20px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+@keyframes itemFloat {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-8px); }
+}
+
+@keyframes itemGlow {
+  0%   { box-shadow: 0 0 20px rgba(217,119,6,0.3); }
+  50%  { box-shadow: 0 0 50px rgba(217,119,6,0.8), 0 0 100px rgba(217,119,6,0.4); }
+  100% { box-shadow: 0 0 20px rgba(217,119,6,0.3); }
+}
+
+/* Particle burst keyframes (6 directions) */
+@keyframes particle0 {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + 20px), calc(-50% - 20px)) scale(0); opacity: 0; }
+}
+@keyframes particle1 {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% - 20px), calc(-50% - 20px)) scale(0); opacity: 0; }
+}
+@keyframes particle2 {
+  0%   { transform: translate(-50%,-50%) scale(1); opacity: 1; }
+  100% { transform: translate(calc(-50% + 24px), calc(-50% + 10px)) scale(0); opacity: 0; }
+}
+
+/* ─── SKILL TREE NODE ENTRANCE ─── */
+@keyframes nodeEntrance {
+  from { opacity: 0; transform: scale(0.6); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ─── LOADING SCREEN CURSOR BLINK ─── */
+@keyframes cursorBlink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
