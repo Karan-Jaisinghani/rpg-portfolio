@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback } from 'react';
-import { Swords, Menu, X, ArrowUp, Heart } from 'lucide-react';
+import { Swords, Menu, X, ArrowUp } from 'lucide-react';
 import { portfolioData } from './data/portfolioData';
 import type { Quest, Trophy } from './data/portfolioData';
 import { HeroSection } from './components/HeroSection';
