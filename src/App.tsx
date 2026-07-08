@@ -261,9 +261,7 @@ function App() {
             <span className="font-pressstart text-[8px] text-slate-400">© 2026 KARAN JAISINGHANI.</span>
           </div>
           <div className="flex items-center gap-1 text-[11px]">
-            <span>Designed by Karan Jaisinghani. Built with</span>
-            <Heart size={11} className="text-rose-500 fill-current animate-pulse" />
-            <span>in standard pixel fantasy style.</span>
+            <span>Designed by Karan Jaisinghani.</span>
           </div>
         </div>
       </footer>
