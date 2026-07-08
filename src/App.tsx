@@ -261,7 +261,7 @@ function App() {
             <span className="font-pressstart text-[8px] text-slate-400">© 2026 KARAN JAISINGHANI.</span>
           </div>
           <div className="flex items-center gap-1 text-[11px]">
-            <span>Designed by Karan Jaisinghani.</span>
+            <span>Designed by Karan Jaisinghani 💕</span>
           </div>
         </div>
       </footer>

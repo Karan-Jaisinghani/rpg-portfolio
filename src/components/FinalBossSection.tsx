@@ -77,7 +77,7 @@ export const FinalBossSection: React.FC = React.memo(() => {
                 <div className="relative z-10 w-44 flex flex-col items-center">
                   <div className="w-36 h-3 bg-rose-900 border-x-2 border-t-2 border-rose-500/80 rounded-t-sm" />
                   <div className="w-40 h-5 bg-rose-950 border-2 border-rose-800 rounded-sm shadow-[0_5px_15px_rgba(244,63,94,0.3)] flex items-center justify-center">
-                    <span className="text-[7px] font-pressstart tracking-widest text-rose-300">BOSS DAIS</span>
+                    <span className="text-[7px] font-pressstart tracking-widest text-rose-300">HERO STAND</span>
                   </div>
                 </div>
               </div>
