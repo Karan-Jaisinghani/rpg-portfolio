@@ -255,14 +255,13 @@ function App() {
         <FinalBossSection />
       </main>
 
-      {/* Footer */}
       <footer className="bg-slate-950 border-t border-slate-900 py-8 px-4 text-center font-sans text-xs text-slate-500">
         <div className="max-w-6xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-1.5">
             <span className="font-pressstart text-[8px] text-slate-400">© 2026 KARAN JAISINGHANI.</span>
           </div>
           <div className="flex items-center gap-1 text-[11px]">
-            <span>Designed & Built with</span>
+            <span>Designed by Karan Jaisinghani. Built with</span>
             <Heart size={11} className="text-rose-500 fill-current animate-pulse" />
             <span>in standard pixel fantasy style.</span>
           </div>
